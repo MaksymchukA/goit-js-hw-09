@@ -16,3 +16,46 @@ img {
   display: block;
   max-width: 100%;
 }
+
+#datetime-picker {
+  border-radius: 8px;
+  border-color: blue;
+
+  font-size: 24px;
+}
+
+#datetime-picker:hover,
+#datetime-picker:focus,
+#datetime-picker:active {
+  border-color: yellow;
+}
+
+[data-start] {
+  border-radius: 8px;
+  border-color: rgba(15, 94, 94, 0.514);
+  color: rgba(15, 94, 94, 0.514);
+  background-color: transparent;
+
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+[data-start]:hover,
+[data-start]:focus,
+[data-start]:active {
+  border-color: yellow;
+  color: blue;
+}
+
+.value {
+  color: blue
+}
+
+.label {
+  color: orange
+}
+
+.field {
+  font-size: 30px;
+}
