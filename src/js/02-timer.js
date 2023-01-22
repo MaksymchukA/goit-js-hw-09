@@ -1,5 +1,7 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 const datetimePickerInput = document.getElementById('datetime-picker');
 const btnClick = document.querySelector('[data-start]');
@@ -52,13 +54,13 @@ function currentDeltaTime(selectedDates) {
     deltaTime = selectedDates - currentTime;
 
     formatTime = convertMs(deltaTime);
-
+clearInterval
     updateTimer(formatTime);
 
     btnClick.removeAttribute('disabled');
 
     if (deltaTime <= 0) {
-        alert('Please choose a date in the future');
+        Notify.failure('Please choose a date in the future');
         btnClick.setAttribute('disabled', '');
         seconds.textContent = '00';
         minutes.textContent = '00';
