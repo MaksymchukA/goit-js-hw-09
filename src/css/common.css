@@ -20,6 +20,7 @@ img {
 #datetime-picker {
   border-radius: 8px;
   border-color: blue;
+  color: green;
 
   font-size: 24px;
 }
@@ -32,8 +33,8 @@ img {
 
 [data-start] {
   border-radius: 8px;
-  border-color: rgba(15, 94, 94, 0.514);
-  color: rgba(15, 94, 94, 0.514);
+  border-color: green;
+  color: green;
   background-color: transparent;
 
   font-size: 24px;
@@ -58,4 +59,16 @@ img {
 
 .field {
   font-size: 30px;
+}
+
+button:disabled,
+#datetime-picker:disabled,
+button:disabled:hover,
+#datetime-picker:disabled:hover,
+button:disabled:focus,
+#datetime-picker:disabled:focus,
+button:disabled:active,
+#datetime-picker:disabled:active {
+  color: red;
+  border-color: red;
 }

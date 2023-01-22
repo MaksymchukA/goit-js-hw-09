@@ -13,8 +13,6 @@ let deltaTime = 0;
 let timerId = null;
 let formatTime = null;
 
-// btnClick.setAttribute('disabled', true)
-
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -28,50 +26,45 @@ const options = {
 
 flatpickr(datetimePickerInput, options);
 
+btnClick.setAttribute('disabled', '');
+
 btnClick.addEventListener('click', onBtnClick);
 
 function onBtnClick() {
     timerId = setInterval(() => {
-        // btnStartRef.setAttribute('disabled', true);
-            // imputDatePickerRef.setAttribute('disabled', true);
+        btnClick.setAttribute('disabled', '');
+        datetimePickerInput.setAttribute('disabled', '');
           
-            deltaTime -= 10
+            deltaTime -= 4;
           
-            // if (seconds.textContent <= 0 && minutes.textContent <= 0) {
-            //   clearInterval(timerId);
-            // } else {
+            if (seconds.textContent <= 0 && minutes.textContent <= 0) {
+                clearInterval(timerId);
+            } else {
                 formatTime = convertMs(deltaTime);
-
                 updateTimer(formatTime);
-            // }
+            }
     }), DELAY;
 }
 
 function currentDeltaTime(selectedDates) {
-    // btnClick.setAttribute('disabled', true);
-
     const currentTime = Date.now();
-    deltaTime = selectedDates - currentTime;
 
-    deltaTime -= 10;
+    deltaTime = selectedDates - currentTime;
 
     formatTime = convertMs(deltaTime);
 
     updateTimer(formatTime);
 
+    btnClick.removeAttribute('disabled');
+
     if (deltaTime <= 0) {
-        stopTimer();
         alert('Please choose a date in the future');
+        btnClick.setAttribute('disabled', '');
+        seconds.textContent = '00';
+        minutes.textContent = '00';
+        hours.textContent = '00';
+        days.textContent = '00';
     }
-
-    // btnClick.removeAttribute('disabled');
-}
-
-function stopTimer() {
-    // btnClick.setAttribute('disabled', true);
-    clearInterval(timerId);
-    formatTime = convertMs(0);
-    updateTimer(formatTime);
 }
 
 function convertMs(ms) {
