@@ -31,7 +31,8 @@ img {
   border-color: yellow;
 }
 
-[data-start] {
+[data-start],
+[data-stop] {
   border-radius: 8px;
   border-color: green;
   color: green;
@@ -44,7 +45,10 @@ img {
 
 [data-start]:hover,
 [data-start]:focus,
-[data-start]:active {
+[data-start]:active,
+[data-stop]:hover,
+[data-stop]:focus,
+[data-stop]:active {
   border-color: yellow;
   color: blue;
 }
@@ -61,13 +65,17 @@ img {
   font-size: 30px;
 }
 
-button:disabled,
+[data-start]:disabled,
+[data-start]:disabled:hover,
+[data-start]:disabled:focus,
+[data-start]:disabled:active,
+[data-stop]:disabled,
+[data-stop]:disabled:hover,
+[data-stop]:disabled:focus,
+[data-stop]:disabled:active,
 #datetime-picker:disabled,
-button:disabled:hover,
 #datetime-picker:disabled:hover,
-button:disabled:focus,
 #datetime-picker:disabled:focus,
-button:disabled:active,
 #datetime-picker:disabled:active {
   color: red;
   border-color: red;
